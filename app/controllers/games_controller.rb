@@ -3,7 +3,7 @@ class GamesController < ApplicationController
 
   # GET /games
   def index
-    @games = Game.all
+    @games = Game.page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@games.where.not(:loction_latitude => nil)) do |game, marker|
       marker.lat game.loction_latitude
       marker.lng game.loction_longitude
