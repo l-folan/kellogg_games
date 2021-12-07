@@ -6,7 +6,7 @@ RSpec.describe Game, type: :model do
 
     it { should have_many(:attendees) }
 
-    it { should have_many(:comments) }
+    it { should have_many(:messages) }
 
     it { should belong_to(:host) }
   end

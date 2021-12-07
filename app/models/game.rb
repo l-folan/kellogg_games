@@ -1,21 +1,21 @@
 require "open-uri"
 class Game < ApplicationRecord
-  before_validation :geocode_loction
+  before_validation :geocode_location
 
-  def geocode_loction
-    if loction.present?
-      url = "https://maps.googleapis.com/maps/api/geocode/json?key=#{ENV['GMAP_API_KEY']}&address=#{URI.encode(loction)}"
+  def geocode_location
+    if location.present?
+      url = "https://maps.googleapis.com/maps/api/geocode/json?key=#{ENV['GMAP_API_KEY']}&address=#{URI.encode(location)}"
 
       raw_data = open(url).read
 
       parsed_data = JSON.parse(raw_data)
 
       if parsed_data["results"].present?
-        self.loction_latitude = parsed_data["results"][0]["geometry"]["location"]["lat"]
+        self.location_latitude = parsed_data["results"][0]["geometry"]["location"]["lat"]
 
-        self.loction_longitude = parsed_data["results"][0]["geometry"]["location"]["lng"]
+        self.location_longitude = parsed_data["results"][0]["geometry"]["location"]["lng"]
 
-        self.loction_formatted_address = parsed_data["results"][0]["formatted_address"]
+        self.location_formatted_address = parsed_data["results"][0]["formatted_address"]
       end
     end
   end
@@ -26,8 +26,7 @@ class Game < ApplicationRecord
   has_many   :attendees,
              dependent: :destroy
 
-  has_many   :comments,
-             class_name: "Message",
+  has_many   :messages,
              dependent: :destroy
 
   belongs_to :host,
@@ -36,7 +35,7 @@ class Game < ApplicationRecord
   # Indirect associations
 
   has_many   :authors,
-             through: :comments,
+             through: :messages,
              source: :author
 
   has_many   :players,
@@ -48,6 +47,6 @@ class Game < ApplicationRecord
   # Scopes
 
   def to_s
-    host.to_s
+    description
   end
 end

@@ -12,7 +12,7 @@ RSpec.describe User, type: :model do
   describe "InDirect Associations" do
     it { should have_many(:messages) }
 
-    it { should have_many(:accepted_games) }
+    it { should have_many(:joined_games) }
   end
 
   describe "Validations" do

@@ -7,7 +7,7 @@ class CreateGames < ActiveRecord::Migration[6.0]
       t.time :time
       t.string :max_attendees
       t.integer :game_category_id
-      t.string :loction
+      t.string :location
 
       t.timestamps
     end
