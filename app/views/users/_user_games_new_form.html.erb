@@ -1,0 +1,71 @@
+<!-- Form game start -->
+<%= form_with(model: @game, local: true) do |f| %>
+<!-- Form game end -->
+
+  <!-- Label and input for host_id start -->
+  <!-- Input for host_id start -->
+  <%= f.hidden_field :host_id, value: @user.id %>
+  <!-- Input for host_id end -->
+  <!-- Label and input for host_id end -->
+
+  <!-- Label and input for description start -->
+  <div class="form-group">
+    <%= f.label :description %>
+    <!-- Input for description start -->
+    <%= f.text_area :description, rows: "3", class: "form-control" %>
+    <!-- Input for description end -->
+  </div>
+  <!-- Label and input for description end -->
+
+  <!-- Label and input for date start -->
+  <div class="form-group">
+    <%= f.label :date %>
+
+    <!-- Input for date start -->
+    <%= f.date_select :date, class: "form-control" %>
+    <!-- Input for date end -->
+  </div>
+  <!-- Label and input for date end -->
+
+  <!-- Label and input for time start -->
+  <div class="form-group">
+    <%= f.label :time %>
+
+    <!-- Input for time start -->
+    <%= f.date_select :time, class: "form-control" %>
+    <!-- Input for time end -->
+  </div>
+  <!-- Label and input for time end -->
+
+  <!-- Label and input for max_attendees start -->
+  <div class="form-group">
+    <%= f.label :max_attendees %>
+
+    <!-- Input for max_attendees start -->
+    <%= f.text_field :max_attendees, class: "form-control" %>
+    <!-- Input for max_attendees end -->
+  </div>
+  <!-- Label and input for max_attendees end -->
+
+  <!-- Label and input for game_category_id start -->
+  <div class="form-group">
+    <%= f.label :game_category_id %>
+
+    <!-- Input for game_category_id start -->
+    <%= f.text_field :game_category_id, class: "form-control" %>
+    <!-- Input for game_category_id end -->
+  </div>
+  <!-- Label and input for game_category_id end -->
+
+  <!-- Label and input for loction start -->
+  <div class="form-group">
+    <%= f.label :loction %>
+
+    <!-- Input for loction start -->
+    <%= f.text_field :loction, class: "form-control" %>
+    <!-- Input for loction end -->
+  </div>
+  <!-- Label and input for loction end -->
+
+  <%= f.submit "Create game", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

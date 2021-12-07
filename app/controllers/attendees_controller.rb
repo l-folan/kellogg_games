@@ -24,7 +24,12 @@ class AttendeesController < ApplicationController
     @attendee = Attendee.new(attendee_params)
 
     if @attendee.save
-      redirect_to @attendee, notice: 'Attendee was successfully created.'
+      message = 'Attendee was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @attendee, notice: message
+      end
     else
       render :new
     end

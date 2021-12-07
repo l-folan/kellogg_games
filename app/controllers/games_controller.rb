@@ -8,6 +8,8 @@ class GamesController < ApplicationController
 
   # GET /games/1
   def show
+    @attendee = Attendee.new
+    @message = Message.new
   end
 
   # GET /games/new
@@ -24,7 +26,12 @@ class GamesController < ApplicationController
     @game = Game.new(game_params)
 
     if @game.save
-      redirect_to @game, notice: 'Game was successfully created.'
+      message = 'Game was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @game, notice: message
+      end
     else
       render :new
     end
