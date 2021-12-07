@@ -7,7 +7,7 @@
     <%= f.label :author_id %>
 
     <!-- Input for author_id start -->
-    <%= f.text_field :author_id, class: "form-control" %>
+    <%= f.collection_select :author_id, User.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for author_id end -->
   </div>
   <!-- Label and input for author_id end -->
