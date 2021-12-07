@@ -16,6 +16,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :accepted_games,
+             :through => :attendees,
+             :source => :game
+
   # Validations
 
   # Scopes

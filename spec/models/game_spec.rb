@@ -16,6 +16,8 @@ RSpec.describe Game, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_many(:players) }
+
     end
 
     describe "Validations" do
