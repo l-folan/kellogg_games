@@ -20,6 +20,9 @@ class UserResource < ApplicationResource
 
   # Indirect associations
 
+  many_to_many :messages,
+               resource: GameResource
+
   many_to_many :accepted_games,
                resource: GameResource
 

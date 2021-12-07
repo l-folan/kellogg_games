@@ -24,6 +24,9 @@ class GameResource < ApplicationResource
 
   # Indirect associations
 
+  many_to_many :authors,
+               resource: UserResource
+
   many_to_many :players,
                resource: UserResource
 
