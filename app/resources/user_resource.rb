@@ -8,6 +8,9 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :attendees,
+             foreign_key: :player_id
+
   has_many   :games,
              foreign_key: :host_id
 
