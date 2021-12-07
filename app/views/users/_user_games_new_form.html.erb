@@ -52,7 +52,7 @@
     <%= f.label :game_category_id %>
 
     <!-- Input for game_category_id start -->
-    <%= f.text_field :game_category_id, class: "form-control" %>
+    <%= f.collection_select :game_category_id, GameCategory.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for game_category_id end -->
   </div>
   <!-- Label and input for game_category_id end -->

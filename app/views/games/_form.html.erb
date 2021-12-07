@@ -146,7 +146,7 @@
 
     <%= f.label :game_category_id %>
     <!-- Input for game_category_id start -->
-    <%= f.number_field :game_category_id, class: game_category_class, placeholder: "Enter game category" %>
+    <%= f.collection_select :game_category_id, GameCategory.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for game_category_id end -->
     <% if game_category_was_invalid %>
       <% game.errors.full_messages_for(:game_category).each do |message| %>
