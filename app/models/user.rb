@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :attendees,
+             :foreign_key => "player_id",
+             :dependent => :destroy
+
   has_many   :games,
              :foreign_key => "host_id",
              :dependent => :destroy
