@@ -29,5 +29,4 @@ class GameResource < ApplicationResource
 
   many_to_many :players,
                resource: UserResource
-
 end

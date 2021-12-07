@@ -1,10 +1,10 @@
-require 'open-uri'
+require "open-uri"
 class Game < ApplicationRecord
   before_validation :geocode_loction
 
   def geocode_loction
-    if self.loction.present?
-      url = "https://maps.googleapis.com/maps/api/geocode/json?key=#{ENV['GMAP_API_KEY']}&address=#{URI.encode(self.loction)}"
+    if loction.present?
+      url = "https://maps.googleapis.com/maps/api/geocode/json?key=#{ENV['GMAP_API_KEY']}&address=#{URI.encode(loction)}"
 
       raw_data = open(url).read
 
@@ -24,24 +24,24 @@ class Game < ApplicationRecord
   belongs_to :game_category
 
   has_many   :attendees,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :comments,
-             :class_name => "Message",
-             :dependent => :destroy
+             class_name: "Message",
+             dependent: :destroy
 
   belongs_to :host,
-             :class_name => "User"
+             class_name: "User"
 
   # Indirect associations
 
   has_many   :authors,
-             :through => :comments,
-             :source => :author
+             through: :comments,
+             source: :author
 
   has_many   :players,
-             :through => :attendees,
-             :source => :player
+             through: :attendees,
+             source: :player
 
   # Validations
 
@@ -50,5 +50,4 @@ class Game < ApplicationRecord
   def to_s
     host.to_s
   end
-
 end

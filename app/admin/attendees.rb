@@ -1,6 +1,5 @@
 ActiveAdmin.register Attendee do
-
- permit_params :game_id, :attendance_status, :waitlist_status, :player_id
+  permit_params :game_id, :attendance_status, :waitlist_status, :player_id
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -14,5 +13,4 @@ ActiveAdmin.register Attendee do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
 end

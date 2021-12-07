@@ -25,5 +25,4 @@ class UserResource < ApplicationResource
 
   many_to_many :accepted_games,
                resource: GameResource
-
 end

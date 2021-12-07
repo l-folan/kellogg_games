@@ -2,7 +2,7 @@ class GameCategory < ApplicationRecord
   # Direct associations
 
   has_many   :games,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
@@ -13,5 +13,4 @@ class GameCategory < ApplicationRecord
   def to_s
     name
   end
-
 end

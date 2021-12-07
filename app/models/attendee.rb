@@ -4,7 +4,7 @@ class Attendee < ApplicationRecord
   belongs_to :game
 
   belongs_to :player,
-             :class_name => "User"
+             class_name: "User"
 
   # Indirect associations
 
@@ -15,5 +15,4 @@ class Attendee < ApplicationRecord
   def to_s
     game.to_s
   end
-
 end

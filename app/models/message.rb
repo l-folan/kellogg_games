@@ -4,7 +4,7 @@ class Message < ApplicationRecord
   belongs_to :game
 
   belongs_to :author,
-             :class_name => "User"
+             class_name: "User"
 
   # Indirect associations
 
@@ -15,5 +15,4 @@ class Message < ApplicationRecord
   def to_s
     author.to_s
   end
-
 end

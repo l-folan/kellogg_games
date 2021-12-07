@@ -15,5 +15,4 @@ class AttendeeResource < ApplicationResource
              resource: UserResource
 
   # Indirect associations
-
 end

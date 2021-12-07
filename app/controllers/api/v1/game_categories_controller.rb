@@ -13,7 +13,7 @@ class Api::V1::GameCategoriesController < Api::V1::GraphitiController
     game_category = GameCategoryResource.build(params)
 
     if game_category.save
-      render jsonapi: game_category, status: 201
+      render jsonapi: game_category, status: :created
     else
       render jsonapi_errors: game_category
     end
@@ -33,7 +33,7 @@ class Api::V1::GameCategoriesController < Api::V1::GraphitiController
     game_category = GameCategoryResource.find(params)
 
     if game_category.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: game_category
     end

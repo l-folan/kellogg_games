@@ -1,9 +1,7 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Game, type: :model do
-  
-    describe "Direct Associations" do
-
+  describe "Direct Associations" do
     it { should belong_to(:game_category) }
 
     it { should have_many(:attendees) }
@@ -11,18 +9,14 @@ RSpec.describe Game, type: :model do
     it { should have_many(:comments) }
 
     it { should belong_to(:host) }
+  end
 
-    end
-
-    describe "InDirect Associations" do
-
+  describe "InDirect Associations" do
     it { should have_many(:authors) }
 
     it { should have_many(:players) }
+  end
 
-    end
-
-    describe "Validations" do
-
-    end
+  describe "Validations" do
+  end
 end

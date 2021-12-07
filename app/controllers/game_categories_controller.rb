@@ -1,10 +1,10 @@
 class GameCategoriesController < ApplicationController
-  before_action :set_game_category, only: [:show, :edit, :update, :destroy]
+  before_action :set_game_category, only: %i[show edit update destroy]
 
   # GET /game_categories
   def index
     @q = GameCategory.ransack(params[:q])
-    @game_categories = @q.result(:distinct => true).includes(:games).page(params[:page]).per(10)
+    @game_categories = @q.result(distinct: true).includes(:games).page(params[:page]).per(10)
   end
 
   # GET /game_categories/1
@@ -18,15 +18,15 @@ class GameCategoriesController < ApplicationController
   end
 
   # GET /game_categories/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /game_categories
   def create
     @game_category = GameCategory.new(game_category_params)
 
     if @game_category.save
-      redirect_to @game_category, notice: 'Game category was successfully created.'
+      redirect_to @game_category,
+                  notice: "Game category was successfully created."
     else
       render :new
     end
@@ -35,7 +35,8 @@ class GameCategoriesController < ApplicationController
   # PATCH/PUT /game_categories/1
   def update
     if @game_category.update(game_category_params)
-      redirect_to @game_category, notice: 'Game category was successfully updated.'
+      redirect_to @game_category,
+                  notice: "Game category was successfully updated."
     else
       render :edit
     end
@@ -44,17 +45,19 @@ class GameCategoriesController < ApplicationController
   # DELETE /game_categories/1
   def destroy
     @game_category.destroy
-    redirect_to game_categories_url, notice: 'Game category was successfully destroyed.'
+    redirect_to game_categories_url,
+                notice: "Game category was successfully destroyed."
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_game_category
-      @game_category = GameCategory.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def game_category_params
-      params.require(:game_category).permit(:name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_game_category
+    @game_category = GameCategory.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def game_category_params
+    params.require(:game_category).permit(:name)
+  end
 end
