@@ -1,0 +1,83 @@
+<% was_validated = message.errors.any? %>
+
+<%= form_with(model: message, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for author_id start -->
+  <div class="form-group">
+    <% author_class = "form-control" %>
+    <% author_was_invalid = message.errors.include?(:author) %>
+
+    <% if was_validated %>
+      <% if author_was_invalid %>
+        <% author_class << " is-invalid" %>
+      <% else %>
+        <% author_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :author_id %>
+    <!-- Input for author_id start -->
+    <%= f.number_field :author_id, class: author_class, placeholder: "Enter author" %>
+    <!-- Input for author_id end -->
+    <% if author_was_invalid %>
+      <% message.errors.full_messages_for(:author).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for author_id end -->
+  <!-- Label and input for description start -->
+  <div class="form-group">
+    <% description_class = "form-control" %>
+    <% description_was_invalid = message.errors.include?(:description) %>
+
+    <% if was_validated %>
+      <% if description_was_invalid %>
+        <% description_class << " is-invalid" %>
+      <% else %>
+        <% description_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :description %>
+    <!-- Input for description start -->
+    <%= f.text_area :description, class: description_class, placeholder: "Enter description" %>
+    <!-- Input for description end -->
+    <% if description_was_invalid %>
+      <% message.errors.full_messages_for(:description).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for description end -->
+  <!-- Label and input for game_id start -->
+  <div class="form-group">
+    <% game_class = "form-control" %>
+    <% game_was_invalid = message.errors.include?(:game) %>
+
+    <% if was_validated %>
+      <% if game_was_invalid %>
+        <% game_class << " is-invalid" %>
+      <% else %>
+        <% game_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :game_id %>
+    <!-- Input for game_id start -->
+    <%= f.number_field :game_id, class: game_class, placeholder: "Enter game" %>
+    <!-- Input for game_id end -->
+    <% if game_was_invalid %>
+      <% message.errors.full_messages_for(:game).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for game_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
