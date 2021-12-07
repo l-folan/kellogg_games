@@ -12,6 +12,8 @@ class GameResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :game_category
+
   has_many   :attendees
 
   has_many   :comments,
