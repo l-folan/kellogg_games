@@ -94,7 +94,7 @@
 
     <%= f.label :player_id %>
     <!-- Input for player_id start -->
-    <%= f.number_field :player_id, class: player_class, placeholder: "Enter player" %>
+    <%= f.collection_select :player_id, User.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for player_id end -->
     <% if player_was_invalid %>
       <% attendee.errors.full_messages_for(:player).each do |message| %>
