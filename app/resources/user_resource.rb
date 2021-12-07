@@ -8,6 +8,10 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :comments,
+             resource: MessageResource,
+             foreign_key: :author_id
+
   # Indirect associations
 
 end

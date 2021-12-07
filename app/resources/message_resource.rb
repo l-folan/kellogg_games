@@ -8,6 +8,9 @@ class MessageResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :author,
+             resource: UserResource
+
   # Indirect associations
 
 end
