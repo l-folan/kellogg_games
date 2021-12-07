@@ -9,6 +9,8 @@ class AttendeeResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :game
+
   belongs_to :player,
              resource: UserResource
 

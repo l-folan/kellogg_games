@@ -12,6 +12,8 @@ class GameResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :attendees
+
   has_many   :comments,
              resource: MessageResource
 
