@@ -37,7 +37,11 @@
 
       <dt>Loction</dt>
       <!-- Display loction start -->
-      <dd><%= game.loction %></dd>
+      <dd>
+        <div>
+          <%= render partial: "games/one_photo_map" %>
+        </div>
+      </dd>
       <!-- Display loction end -->
 
     </dl>
