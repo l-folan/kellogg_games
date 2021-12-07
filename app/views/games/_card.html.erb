@@ -6,51 +6,37 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Host</dt>
-      <!-- Display host_id start -->
       <dd>
         <% if @game.host.present? %>
           <%= link_to game.host, game.host %>
         <% end %>
       </dd>
-      <!-- Display host_id end -->
 
       <dt>Description</dt>
-      <!-- Display description start -->
       <dd><%= game.description %></dd>
-      <!-- Display description end -->
 
       <dt>Date</dt>
-      <!-- Display date start -->
       <dd><%= game.date %></dd>
-      <!-- Display date end -->
 
       <dt>Time</dt>
-      <!-- Display time start -->
       <dd><%= game.time %></dd>
-      <!-- Display time end -->
 
       <dt>Max attendees</dt>
-      <!-- Display max_attendees start -->
       <dd><%= game.max_attendees %></dd>
-      <!-- Display max_attendees end -->
 
       <dt>Game category</dt>
-      <!-- Display game_category_id start -->
       <dd>
         <% if @game.game_category.present? %>
           <%= link_to game.game_category, game.game_category %>
         <% end %>
       </dd>
-      <!-- Display game_category_id end -->
 
       <dt>Loction</dt>
-      <!-- Display loction start -->
       <dd>
         <div>
           <%= render partial: "games/one_photo_map" %>
         </div>
       </dd>
-      <!-- Display loction end -->
 
     </dl>
 
@@ -59,21 +45,17 @@
         <%= link_to_show_or_back game, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link game start -->
       <div class="col">
         <%= link_to edit_game_url(game), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link game end -->
 
-      <!-- Delete link game start -->
       <div class="col">
         <%= link_to game, method: :delete, data: { confirm: "Do you really want to delete this game?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link game end -->
     </div>
   </div>
 

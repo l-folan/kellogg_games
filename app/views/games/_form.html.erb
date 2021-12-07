@@ -1,7 +1,6 @@
 <% was_validated = game.errors.any? %>
 
 <%= form_with(model: game, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for host_id start -->
   <div class="form-group">
     <% host_class = "form-control" %>
     <% host_was_invalid = game.errors.include?(:host) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :host_id %>
-    <!-- Input for host_id start -->
     <%= f.collection_select :host_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for host_id end -->
     <% if host_was_invalid %>
       <% game.errors.full_messages_for(:host).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for host_id end -->
-  <!-- Label and input for description start -->
   <div class="form-group">
     <% description_class = "form-control" %>
     <% description_was_invalid = game.errors.include?(:description) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :description %>
-    <!-- Input for description start -->
     <%= f.text_area :description, class: description_class, placeholder: "Enter description" %>
-    <!-- Input for description end -->
     <% if description_was_invalid %>
       <% game.errors.full_messages_for(:description).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for description end -->
-  <!-- Label and input for date start -->
   <div class="form-group">
     <% date_class = "form-control" %>
     <% date_was_invalid = game.errors.include?(:date) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :date %>
-    <!-- Input for date start -->
     <%= f.date_select :date, class: date_class, placeholder: "Enter date" %>
-    <!-- Input for date end -->
     <% if date_was_invalid %>
       <% game.errors.full_messages_for(:date).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for date end -->
-  <!-- Label and input for time start -->
   <div class="form-group">
     <% time_class = "form-control" %>
     <% time_was_invalid = game.errors.include?(:time) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :time %>
-    <!-- Input for time start -->
     <%= f.time_select :time, class: time_class, placeholder: "Enter time" %>
-    <!-- Input for time end -->
     <% if time_was_invalid %>
       <% game.errors.full_messages_for(:time).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,8 +89,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for time end -->
-  <!-- Label and input for max_attendees start -->
   <div class="form-group">
     <% max_attendee_class = "form-control" %>
     <% max_attendee_was_invalid = game.errors.include?(:max_attendee) %>
@@ -119,9 +102,7 @@
     <% end %>
 
     <%= f.label :max_attendees %>
-    <!-- Input for max_attendees start -->
     <%= f.text_field :max_attendees, class: max_attendee_class, placeholder: "Enter max attendee" %>
-    <!-- Input for max_attendees end -->
     <% if max_attendee_was_invalid %>
       <% game.errors.full_messages_for(:max_attendee).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -130,8 +111,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for max_attendees end -->
-  <!-- Label and input for game_category_id start -->
   <div class="form-group">
     <% game_category_class = "form-control" %>
     <% game_category_was_invalid = game.errors.include?(:game_category) %>
@@ -145,9 +124,7 @@
     <% end %>
 
     <%= f.label :game_category_id %>
-    <!-- Input for game_category_id start -->
     <%= f.collection_select :game_category_id, GameCategory.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for game_category_id end -->
     <% if game_category_was_invalid %>
       <% game.errors.full_messages_for(:game_category).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -156,8 +133,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for game_category_id end -->
-  <!-- Label and input for loction start -->
   <div class="form-group">
     <% loction_class = "form-control" %>
     <% loction_was_invalid = game.errors.include?(:loction) %>
@@ -171,9 +146,7 @@
     <% end %>
 
     <%= f.label :loction %>
-    <!-- Input for loction start -->
     <%= f.text_field :loction, class: loction_class, placeholder: "Enter loction" %>
-    <!-- Input for loction end -->
     <% if loction_was_invalid %>
       <% game.errors.full_messages_for(:loction).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -182,6 +155,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for loction end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

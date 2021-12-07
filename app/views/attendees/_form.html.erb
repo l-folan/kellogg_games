@@ -1,7 +1,6 @@
 <% was_validated = attendee.errors.any? %>
 
 <%= form_with(model: attendee, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for game_id start -->
   <div class="form-group">
     <% game_class = "form-control" %>
     <% game_was_invalid = attendee.errors.include?(:game) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :game_id %>
-    <!-- Input for game_id start -->
     <%= f.collection_select :game_id, Game.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for game_id end -->
     <% if game_was_invalid %>
       <% attendee.errors.full_messages_for(:game).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for game_id end -->
-  <!-- Label and input for attendance_status start -->
   <div class="form-group">
     <% attendance_status_class = "form-control" %>
     <% attendance_status_was_invalid = attendee.errors.include?(:attendance_status) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :attendance_status %>
-    <!-- Input for attendance_status start -->
     <%= f.text_field :attendance_status, class: attendance_status_class, placeholder: "Enter attendance status" %>
-    <!-- Input for attendance_status end -->
     <% if attendance_status_was_invalid %>
       <% attendee.errors.full_messages_for(:attendance_status).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for attendance_status end -->
-  <!-- Label and input for waitlist_status start -->
   <div class="form-group">
     <% waitlist_status_class = "form-control" %>
     <% waitlist_status_was_invalid = attendee.errors.include?(:waitlist_status) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :waitlist_status %>
-    <!-- Input for waitlist_status start -->
     <%= f.text_field :waitlist_status, class: waitlist_status_class, placeholder: "Enter waitlist status" %>
-    <!-- Input for waitlist_status end -->
     <% if waitlist_status_was_invalid %>
       <% attendee.errors.full_messages_for(:waitlist_status).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for waitlist_status end -->
-  <!-- Label and input for player_id start -->
   <div class="form-group">
     <% player_class = "form-control" %>
     <% player_was_invalid = attendee.errors.include?(:player) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :player_id %>
-    <!-- Input for player_id start -->
     <%= f.collection_select :player_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for player_id end -->
     <% if player_was_invalid %>
       <% attendee.errors.full_messages_for(:player).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,6 +89,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for player_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

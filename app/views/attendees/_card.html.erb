@@ -6,32 +6,24 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Game</dt>
-      <!-- Display game_id start -->
       <dd>
         <% if @attendee.game.present? %>
           <%= link_to attendee.game, attendee.game %>
         <% end %>
       </dd>
-      <!-- Display game_id end -->
 
       <dt>Attendance status</dt>
-      <!-- Display attendance_status start -->
       <dd><%= attendee.attendance_status %></dd>
-      <!-- Display attendance_status end -->
 
       <dt>Waitlist status</dt>
-      <!-- Display waitlist_status start -->
       <dd><%= attendee.waitlist_status %></dd>
-      <!-- Display waitlist_status end -->
 
       <dt>Player</dt>
-      <!-- Display player_id start -->
       <dd>
         <% if @attendee.player.present? %>
           <%= link_to attendee.player, attendee.player %>
         <% end %>
       </dd>
-      <!-- Display player_id end -->
 
     </dl>
 
@@ -40,21 +32,17 @@
         <%= link_to_show_or_back attendee, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link attendee start -->
       <div class="col">
         <%= link_to edit_attendee_url(attendee), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link attendee end -->
 
-      <!-- Delete link attendee start -->
       <div class="col">
         <%= link_to attendee, method: :delete, data: { confirm: "Do you really want to delete this attendee?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link attendee end -->
     </div>
   </div>
 

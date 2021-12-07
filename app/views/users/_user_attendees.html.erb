@@ -10,24 +10,18 @@
   <ul class="list-group list-group-flush">
     <% @user.attendees.each do |attendee| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to attendee, attendee %>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <%= link_to attendee, method: :delete, data: { confirm: "Do you really want to delete this attendee" } do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="user_attendees_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "users/user_attendees_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

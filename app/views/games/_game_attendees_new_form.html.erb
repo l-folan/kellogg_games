@@ -1,42 +1,24 @@
-<!-- Form attendee start -->
 <%= form_with(model: @attendee, local: true) do |f| %>
-<!-- Form attendee end -->
 
-  <!-- Label and input for game_id start -->
-  <!-- Input for game_id start -->
   <%= f.hidden_field :game_id, value: @game.id %>
-  <!-- Input for game_id end -->
-  <!-- Label and input for game_id end -->
 
-  <!-- Label and input for attendance_status start -->
   <div class="form-group">
     <%= f.label :attendance_status %>
 
-    <!-- Input for attendance_status start -->
     <%= f.text_field :attendance_status, class: "form-control" %>
-    <!-- Input for attendance_status end -->
   </div>
-  <!-- Label and input for attendance_status end -->
 
-  <!-- Label and input for waitlist_status start -->
   <div class="form-group">
     <%= f.label :waitlist_status %>
 
-    <!-- Input for waitlist_status start -->
     <%= f.text_field :waitlist_status, class: "form-control" %>
-    <!-- Input for waitlist_status end -->
   </div>
-  <!-- Label and input for waitlist_status end -->
 
-  <!-- Label and input for player_id start -->
   <div class="form-group">
     <%= f.label :player_id %>
 
-    <!-- Input for player_id start -->
     <%= f.collection_select :player_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for player_id end -->
   </div>
-  <!-- Label and input for player_id end -->
 
   <%= f.submit "Create attendee", class: "btn btn-block btn-outline-secondary" %>
 <% end %>
