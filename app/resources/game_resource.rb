@@ -12,6 +12,9 @@ class GameResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :comments,
+             resource: MessageResource
+
   belongs_to :host,
              resource: UserResource
 

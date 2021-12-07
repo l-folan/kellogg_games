@@ -8,6 +8,8 @@ class MessageResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :game
+
   belongs_to :author,
              resource: UserResource
 
