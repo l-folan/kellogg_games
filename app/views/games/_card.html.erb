@@ -7,7 +7,11 @@
     <dl class="mb-1">
       <dt>Host</dt>
       <!-- Display host_id start -->
-      <dd><%= game.host_id %></dd>
+      <dd>
+        <% if @game.host.present? %>
+          <%= link_to game.host, game.host %>
+        <% end %>
+      </dd>
       <!-- Display host_id end -->
 
       <dt>Description</dt>
@@ -32,7 +36,11 @@
 
       <dt>Game category</dt>
       <!-- Display game_category_id start -->
-      <dd><%= game.game_category_id %></dd>
+      <dd>
+        <% if @game.game_category.present? %>
+          <%= link_to game.game_category, game.game_category %>
+        <% end %>
+      </dd>
       <!-- Display game_category_id end -->
 
       <dt>Loction</dt>
