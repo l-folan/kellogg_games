@@ -4,6 +4,8 @@ RSpec.describe GameCategory, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:games) }
+
     end
 
     describe "InDirect Associations" do
