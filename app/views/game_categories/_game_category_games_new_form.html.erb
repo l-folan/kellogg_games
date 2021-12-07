@@ -7,7 +7,7 @@
     <%= f.label :host_id %>
 
     <!-- Input for host_id start -->
-    <%= f.text_field :host_id, class: "form-control" %>
+    <%= f.collection_select :host_id, User.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for host_id end -->
   </div>
   <!-- Label and input for host_id end -->
