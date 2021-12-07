@@ -8,6 +8,9 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :games,
+             foreign_key: :host_id
+
   has_many   :comments,
              resource: MessageResource,
              foreign_key: :author_id
