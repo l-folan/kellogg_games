@@ -1,6 +1,10 @@
 class Game < ApplicationRecord
   # Direct associations
 
+  has_many   :comments,
+             :class_name => "Message",
+             :dependent => :destroy
+
   belongs_to :host,
              :class_name => "User"
 

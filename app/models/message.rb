@@ -1,6 +1,8 @@
 class Message < ApplicationRecord
   # Direct associations
 
+  belongs_to :game
+
   belongs_to :author,
              :class_name => "User"
 
