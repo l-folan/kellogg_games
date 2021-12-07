@@ -5,9 +5,9 @@
   handler.buildMap({ provider: {}, internal: {id: 'location_map'}}, function(){
     markers = handler.addMarkers([
       {
-        "lat": <%= @game.loction_latitude %>,
-        "lng": <%= @game.loction_longitude %>,
-        "infowindow": "<h5><%= @game.created_at %></h5><small><%= @game.loction_formatted_address %></small>"
+        "lat": <%= @game.location_latitude %>,
+        "lng": <%= @game.location_longitude %>,
+        "infowindow": "<h5><%= @game.created_at %></h5><small><%= @game.location_formatted_address %></small>"
       }
     ]);
     handler.bounds.extendWith(markers);

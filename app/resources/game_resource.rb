@@ -8,7 +8,7 @@ class GameResource < ApplicationResource
   attribute :time, :string
   attribute :max_attendees, :string
   attribute :game_category_id, :integer
-  attribute :loction, :string
+  attribute :location, :string
 
   # Direct associations
 
@@ -16,8 +16,7 @@ class GameResource < ApplicationResource
 
   has_many   :attendees
 
-  has_many   :comments,
-             resource: MessageResource
+  has_many   :messages
 
   belongs_to :host,
              resource: UserResource

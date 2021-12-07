@@ -23,6 +23,6 @@ class UserResource < ApplicationResource
   many_to_many :messages,
                resource: GameResource
 
-  many_to_many :accepted_games,
+  many_to_many :joined_games,
                resource: GameResource
 end

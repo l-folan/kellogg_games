@@ -3,11 +3,11 @@ class GamesController < ApplicationController
 
   def index
     @q = Game.ransack(params[:q])
-    @games = @q.result(distinct: true).includes(:host, :comments,
+    @games = @q.result(distinct: true).includes(:host, :messages,
                                                 :attendees, :game_category, :players, :authors).page(params[:page]).per(10)
-    @location_hash = Gmaps4rails.build_markers(@games.where.not(loction_latitude: nil)) do |game, marker|
-      marker.lat game.loction_latitude
-      marker.lng game.loction_longitude
+    @location_hash = Gmaps4rails.build_markers(@games.where.not(location_latitude: nil)) do |game, marker|
+      marker.lat game.location_latitude
+      marker.lng game.location_longitude
     end
   end
 
@@ -63,6 +63,6 @@ class GamesController < ApplicationController
 
   def game_params
     params.require(:game).permit(:host_id, :description, :date, :time,
-                                 :max_attendees, :game_category_id, :loction)
+                                 :max_attendees, :game_category_id, :location)
   end
 end

@@ -20,7 +20,7 @@ class User < ApplicationRecord
              through: :comments,
              source: :game
 
-  has_many   :accepted_games,
+  has_many   :joined_games,
              through: :attendees,
              source: :game
 
