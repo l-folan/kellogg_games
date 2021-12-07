@@ -15,6 +15,10 @@ class Game < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :authors,
+             :through => :comments,
+             :source => :author
+
   has_many   :players,
              :through => :attendees,
              :source => :player
