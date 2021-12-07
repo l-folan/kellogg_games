@@ -1,14 +1,14 @@
 <div class="card">
   <div class="card-header d-flex align-items-center justify-content-between">
-    Attendees
+    Games Attending
 
-    <a data-toggle="collapse" href="#user_attendees_new_form">
+    <a data-toggle="collapse" href="#user_games_attending_new_form">
       Add attendee
     </a>
   </div>
 
   <ul class="list-group list-group-flush">
-    <% @user.attendees.each do |attendee| %>
+    <% @user.games_attending.each do |attendee| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
         <%= link_to attendee, attendee %>
 
@@ -20,8 +20,8 @@
     <% end %>
 
     <div class="card-footer">
-      <div class="collapse" id="user_attendees_new_form">
-        <%= render partial: "users/user_attendees_new_form" %>
+      <div class="collapse" id="user_games_attending_new_form">
+        <%= render partial: "users/user_games_attending_new_form" %>
       </div>
     </div>
 

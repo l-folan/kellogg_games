@@ -8,21 +8,22 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
-  has_many   :attendees,
+  has_many   :messages,
+             foreign_key: :author_id
+
+  has_many   :games_attending,
+             resource: AttendeeResource,
              foreign_key: :player_id
 
-  has_many   :games,
+  has_many   :games_hosted,
+             resource: GameResource,
              foreign_key: :host_id
-
-  has_many   :comments,
-             resource: MessageResource,
-             foreign_key: :author_id
 
   # Indirect associations
 
-  many_to_many :messages,
+  many_to_many :game_messages,
                resource: GameResource
 
-  many_to_many :joined_games,
+  many_to_many :games_joined,
                resource: GameResource
 end

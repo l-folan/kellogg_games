@@ -1,7 +1,8 @@
 class GameCategory < ApplicationRecord
   # Direct associations
 
-  has_many   :games,
+  has_many   :categories,
+             class_name: "Game",
              dependent: :destroy
 
   # Indirect associations

@@ -4,7 +4,7 @@ class GamesController < ApplicationController
   def index
     @q = Game.ransack(params[:q])
     @games = @q.result(distinct: true).includes(:host, :messages,
-                                                :attendees, :game_category, :players, :authors).page(params[:page]).per(10)
+                                                :attendees, :game_type, :players, :authors).page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@games.where.not(location_latitude: nil)) do |game, marker|
       marker.lat game.location_latitude
       marker.lng game.location_longitude

@@ -55,7 +55,6 @@ class AttendeesController < ApplicationController
   end
 
   def attendee_params
-    params.require(:attendee).permit(:game_id, :attendance_status,
-                                     :waitlist_status, :player_id)
+    params.require(:attendee).permit(:game_id, :player_id)
   end
 end

@@ -6,18 +6,6 @@
     <%= f.collection_select :game_id, Game.all, :id, :to_s, {}, class: "form-control" %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :attendance_status %>
-
-    <%= f.text_field :attendance_status, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :waitlist_status %>
-
-    <%= f.text_field :waitlist_status, class: "form-control" %>
-  </div>
-
   <%= f.hidden_field :player_id, value: @user.id %>
 
   <%= f.submit "Create attendee", class: "btn btn-block btn-outline-secondary" %>
