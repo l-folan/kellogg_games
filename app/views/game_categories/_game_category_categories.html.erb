@@ -1,14 +1,14 @@
 <div class="card">
   <div class="card-header d-flex align-items-center justify-content-between">
-    Games
+    Categories
 
-    <a data-toggle="collapse" href="#game_category_games_new_form">
+    <a data-toggle="collapse" href="#game_category_categories_new_form">
       Add game
     </a>
   </div>
 
   <ul class="list-group list-group-flush">
-    <% @game_category.games.each do |game| %>
+    <% @game_category.categories.each do |game| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
         <%= link_to game, game %>
 
@@ -20,8 +20,8 @@
     <% end %>
 
     <div class="card-footer">
-      <div class="collapse" id="game_category_games_new_form">
-        <%= render partial: "game_categories/game_category_games_new_form" %>
+      <div class="collapse" id="game_category_categories_new_form">
+        <%= render partial: "game_categories/game_category_categories_new_form" %>
       </div>
     </div>
 

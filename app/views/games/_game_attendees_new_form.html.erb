@@ -3,18 +3,6 @@
   <%= f.hidden_field :game_id, value: @game.id %>
 
   <div class="form-group">
-    <%= f.label :attendance_status %>
-
-    <%= f.text_field :attendance_status, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :waitlist_status %>
-
-    <%= f.text_field :waitlist_status, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
     <%= f.label :player_id %>
 
     <%= f.collection_select :player_id, User.all, :id, :to_s, {}, class: "form-control" %>

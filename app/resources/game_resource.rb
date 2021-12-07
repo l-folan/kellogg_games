@@ -12,7 +12,9 @@ class GameResource < ApplicationResource
 
   # Direct associations
 
-  belongs_to :game_category
+  belongs_to :game_type,
+             resource: GameCategoryResource,
+             foreign_key: :game_category_id
 
   has_many   :attendees
 

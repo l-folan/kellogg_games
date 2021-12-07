@@ -21,7 +21,9 @@ class Game < ApplicationRecord
   end
   # Direct associations
 
-  belongs_to :game_category
+  belongs_to :game_type,
+             class_name: "GameCategory",
+             foreign_key: "game_category_id"
 
   has_many   :attendees,
              dependent: :destroy

@@ -1,10 +1,10 @@
 <div class="card">
   <div class="card-header d-flex align-items-center justify-content-between">
-    Joined Games
+    Game Messages
   </div>
 
   <ul class="list-group list-group-flush">
-    <% @user.joined_games.each do |game| %>
+    <% @user.game_messages.each do |game| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
         <a href="/games/<%= game.id %>">
           <%= game %>

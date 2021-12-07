@@ -24,50 +24,6 @@
     <% end %>
   </div>
   <div class="form-group">
-    <% attendance_status_class = "form-control" %>
-    <% attendance_status_was_invalid = attendee.errors.include?(:attendance_status) %>
-
-    <% if was_validated %>
-      <% if attendance_status_was_invalid %>
-        <% attendance_status_class << " is-invalid" %>
-      <% else %>
-        <% attendance_status_class << " is-valid" %>
-      <% end %>
-    <% end %>
-
-    <%= f.label :attendance_status %>
-    <%= f.text_field :attendance_status, class: attendance_status_class, placeholder: "Enter attendance status" %>
-    <% if attendance_status_was_invalid %>
-      <% attendee.errors.full_messages_for(:attendance_status).each do |message| %>
-        <div class="invalid-feedback d-flex">
-          <%= message %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="form-group">
-    <% waitlist_status_class = "form-control" %>
-    <% waitlist_status_was_invalid = attendee.errors.include?(:waitlist_status) %>
-
-    <% if was_validated %>
-      <% if waitlist_status_was_invalid %>
-        <% waitlist_status_class << " is-invalid" %>
-      <% else %>
-        <% waitlist_status_class << " is-valid" %>
-      <% end %>
-    <% end %>
-
-    <%= f.label :waitlist_status %>
-    <%= f.text_field :waitlist_status, class: waitlist_status_class, placeholder: "Enter waitlist status" %>
-    <% if waitlist_status_was_invalid %>
-      <% attendee.errors.full_messages_for(:waitlist_status).each do |message| %>
-        <div class="invalid-feedback d-flex">
-          <%= message %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="form-group">
     <% player_class = "form-control" %>
     <% player_was_invalid = attendee.errors.include?(:player) %>
 

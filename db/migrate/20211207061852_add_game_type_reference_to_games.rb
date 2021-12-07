@@ -1,4 +1,4 @@
-class AddGameCategoryReferenceToGames < ActiveRecord::Migration[6.0]
+class AddGameTypeReferenceToGames < ActiveRecord::Migration[6.0]
   def change
     add_foreign_key :games, :game_categories
     add_index :games, :game_category_id

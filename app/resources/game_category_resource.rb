@@ -6,7 +6,8 @@ class GameCategoryResource < ApplicationResource
 
   # Direct associations
 
-  has_many :games
+  has_many   :categories,
+             resource: GameResource
 
   # Indirect associations
 end

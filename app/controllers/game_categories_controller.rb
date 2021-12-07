@@ -3,7 +3,7 @@ class GameCategoriesController < ApplicationController
 
   def index
     @q = GameCategory.ransack(params[:q])
-    @game_categories = @q.result(distinct: true).includes(:games).page(params[:page]).per(10)
+    @game_categories = @q.result(distinct: true).includes(:categories).page(params[:page]).per(10)
   end
 
   def show
