@@ -13,6 +13,6 @@ class Message < ApplicationRecord
   # Scopes
 
   def to_s
-    author.to_s
+    description
   end
 end
