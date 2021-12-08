@@ -14,6 +14,6 @@ class Attendee < ApplicationRecord
   # Scopes
 
   def to_s
-    player.to_s
+    id
   end
 end
